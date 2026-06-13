@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olivetti Face Classifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 60px auto;
+            background: #f4f4f4;
+            text-align: center;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        }
+        h1 { color: #333; }
+        input[type=file] { margin: 20px 0; }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover { background: #45a049; }
+        .result {
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🧑 Olivetti Face Classifier</h1>
+        <p>Upload a grayscale face image to predict the person ID</p>
+        <form action="/predict" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required><br>
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction %}
+        <div class="result">{{ prediction }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
