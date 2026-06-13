@@ -3,4 +3,3 @@ joblib
 flask
 numpy
 pillow
-EOF
